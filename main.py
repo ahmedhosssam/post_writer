@@ -86,5 +86,7 @@ def main():
 
     pyautogui.hotkey('ctrl', 'w') # Close Gedit
 
+    print(f"Finished writing {posts_count} posts successfully.")
+
 if __name__ == "__main__":
     main()
