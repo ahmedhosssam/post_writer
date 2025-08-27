@@ -6,7 +6,7 @@ if [[ "$OSTYPE" != "linux-gnu"* ]]; then
 fi
 
 sudo apt-get install -y xdotool gedit python3-pip 
-pip install pyautogui
+pip install pyautogui pyinstaller
 pyinstaller --onefile --console --name post_writer main.py
 
 sudo cp ./dist/post_writer /usr/bin/post_writer
