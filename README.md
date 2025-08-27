@@ -17,7 +17,7 @@ Currently it only works on Linux with x11.
 You can simply install it with:
 **Note** You need to activate a Python environment first.
 ```bash
-chmod +x setup.py
+chmod +x setup.sh
 ./setup.py
 ```
 That will install `post_writer` in `/usr/bin/post_writer`.
