@@ -33,6 +33,9 @@ def main():
         print("Gedit is not found")
         sys.exit(1)
 
+    # I had to do 30 seconds sleep because Gnome stuff is very slow on my system,
+    # because I don't run on Gnome so there are some bugs on my system.
+    # But on regular Gnome it should open in a second.
     time.sleep(30)
 
     for i in range(posts_count):
@@ -57,7 +60,7 @@ def main():
             title = post["title"]
             body = post["body"]
 
-            final_content = "Title: " + title + "\nBody: \n" + body
+            expected_content = "Title: " + title + "\nBody: \n" + body + "\n"
 
             pyautogui.write("Title: ", interval=0.02)
             pyautogui.write(title, interval=0.02)
@@ -70,8 +73,14 @@ def main():
             pyautogui.hotkey('ctrl', 's')
             time.sleep(0.5)
 
+            with open(post_dirs[i], "r") as f:
+                final_content = f.read()
+            
+            if final_content != expected_content:
+                raise RuntimeError(f"Something went wrong with post number {i+1}, please try again")
+
             pyautogui.hotkey('ctrl', 'w')
-        except:
+        except pyautogui.FailSafeException:
             print("FailSafe triggered! Mouse moved outside the window of Gedit.")
 
     pyautogui.hotkey('ctrl', 'w') # Close Gedit
