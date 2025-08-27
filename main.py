@@ -70,9 +70,6 @@ def main():
             pyautogui.hotkey('ctrl', 's')
             time.sleep(0.5)
 
-            with open(post_dirs[i], "r") as f:
-                cur_content = f.read()
-
             pyautogui.hotkey('ctrl', 'w')
         except:
             print("FailSafe triggered! Mouse moved outside the window of Gedit.")
