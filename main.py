@@ -15,7 +15,7 @@ def main():
 
     url = "https://jsonplaceholder.typicode.com/posts"
     posts_count = 10
-    base_dir = os.path.expanduser("~/posts")
+    base_dir = os.path.expanduser("~/tjm-project")
     post_dirs = []
 
     os.makedirs(base_dir, exist_ok=True)
@@ -29,6 +29,7 @@ def main():
 
     try:
         subprocess.Popen(['gedit'])
+        print("Opening gedit...")
     except FileNotFoundError:
         print("Gedit is not found")
         sys.exit(1)
