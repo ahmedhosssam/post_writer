@@ -20,7 +20,7 @@ def main():
 
     os.makedirs(base_dir, exist_ok=True)
 
-    for i in range(10):
+    for i in range(posts_count):
         post_path = os.path.join(base_dir, f"post_{i+1}.txt")
         with open(post_path, "w") as f:
             f.write("")
