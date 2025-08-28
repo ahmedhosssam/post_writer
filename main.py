@@ -34,7 +34,7 @@ def main():
         print("Gedit is not found")
         sys.exit(1)
 
-    if 'gnome-shell' in subprocess.check_output(["ps", "-e"], text=True):
+    if 'gnome-session' in subprocess.check_output(["ps", "-e"], text=True):
         time.sleep(5)
     else:
         # I had to do 30 seconds sleep because Gnome stuff is very slow on my system,
