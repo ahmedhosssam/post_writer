@@ -34,10 +34,13 @@ def main():
         print("Gedit is not found")
         sys.exit(1)
 
-    # I had to do 30 seconds sleep because Gnome stuff is very slow on my system,
-    # because I don't run on Gnome so there are some bugs on my system.
-    # But on regular Gnome it should open in a second.
-    time.sleep(30)
+    if 'gnome-shell' in subprocess.check_output(["ps", "-e"], text=True):
+        time.sleep(5)
+    else:
+        # I had to do 30 seconds sleep because Gnome stuff is very slow on my system,
+        # because I don't run on Gnome so there are some bugs on my system.
+        # But on regular Gnome it should open in a second.
+        time.sleep(30)
 
     for i in range(posts_count):
         try:
